@@ -1,0 +1,46 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Users/wuzhixin/Desktop/flutter/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/wuzhixin/.cargo/bin:/Users/wuzhixin/Desktop/project/community_web/node_modules/.bin:/Users/wuzhixin/Library/Android/sdk/emulator:/Users/wuzhixin/Library/Android/sdk/tools:/Users/wuzhixin/Library/Android/sdk/tools/bin:/Users/wuzhixin/Library/Android/sdk/platform-tools:/usr/local/mysql/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.17.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: unexpected end of file
+      at Zlib.zlibOnError [as onerror] (zlib.js:181:17)
+
+npm manifest: 
+  {
+    "name": "community_web",
+    "version": "0.0.0",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc && vite build",
+      "preview": "vite preview"
+    },
+    "dependencies": {
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2"
+    },
+    "devDependencies": {
+      "@types/react": "^17.0.33",
+      "@types/react-dom": "^17.0.10",
+      "@vitejs/plugin-react": "^1.0.7",
+      "typescript": "^4.4.4",
+      "vite": "^2.7.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
