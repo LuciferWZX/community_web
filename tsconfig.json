@@ -18,6 +18,9 @@
     "baseUrl": ".",
     "paths": {
       "@pages/*": ["src/pages/*"],
+      "@atoms/*": ["src/atoms/*"],
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"],
       "@layouts/*": ["src/layouts/*"]
     }
   },
