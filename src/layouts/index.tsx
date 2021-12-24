@@ -1,17 +1,18 @@
 import React, { FC } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { userSelector } from "@atoms/user.atom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { RequestCode, ResType, StoreKey } from "@utils/type";
 import store from "storejs";
 import { getUserInfo } from "../services/user";
-import { User } from "@atoms/type";
+import { User } from "@models/type";
 import { useMount } from "ahooks";
-// const history = createBrowserHistory();
-const Layouts: FC = () => {
-  const [user, setUser] = useRecoilState(userSelector);
-  const navigate = useNavigate();
+import { useSelector } from "react-redux";
+import { setUser } from "@utils/storeKid";
+import historyNavigate from "@utils/historyNavigate";
 
+const Layouts: FC = () => {
+  const user = useSelector((state) => state.user.user);
+  const navigate = useNavigate();
+  console.log("当前用户:", user);
   useMount(async () => {
     console.log("验证用户...");
     await verifyUser();
@@ -23,14 +24,16 @@ const Layouts: FC = () => {
     if (token) {
       const res: ResType<User> = await getUserInfo();
       if (res.code === RequestCode.Ok) {
+        console.log(res);
         setUser(res.data);
       }
     } else {
-      navigate("/login");
-      //history.push("/login");
+      //navigate("login");
+      historyNavigate.replace("login");
+      //historyNavigate.go(0);
     }
   };
-  console.log(111, user);
+
   return (
     <div>
       layouts
@@ -40,6 +43,3 @@ const Layouts: FC = () => {
 };
 
 export default Layouts;
-function createBrowserHistory() {
-  throw new Error("Function not implemented.");
-}

@@ -2,13 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./global.less";
 import App from "./App";
-import { RecoilRoot } from "recoil";
-
+import dva from "@utils/dva";
+import models from "./models";
+import { Provider } from "react-redux";
+const dvaApp = dva.createApp({
+  initialState: {},
+  models: models,
+});
+const store = dvaApp.getStore();
 ReactDOM.render(
   <React.StrictMode>
-    <RecoilRoot>
+    <Provider store={store}>
       <App />
-    </RecoilRoot>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

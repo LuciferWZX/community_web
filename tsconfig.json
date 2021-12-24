@@ -19,10 +19,11 @@
     "paths": {
       "@pages/*": ["src/pages/*"],
       "@atoms/*": ["src/atoms/*"],
+      "@models/*": ["src/models/*"],
       "@assets/*": ["src/assets/*"],
       "@utils/*": ["src/utils/*"],
       "@layouts/*": ["src/layouts/*"]
     }
   },
-  "include": ["./src"]
+  "include": ["./src","typings.d.ts"]
 }
