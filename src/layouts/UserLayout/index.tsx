@@ -1,11 +1,10 @@
 import React, { FC } from "react";
-import { Outlet } from "react-router-dom";
 
-const UserLayout: FC = () => {
+const UserLayout: FC = ({ children }) => {
   return (
     <div>
       UserLayout
-      <Outlet />
+      {children}
     </div>
   );
 };

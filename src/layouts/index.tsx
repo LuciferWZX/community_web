@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { RequestCode, ResType, StoreKey } from "@utils/type";
 import store from "storejs";
 import { getUserInfo } from "../services/user";
@@ -9,14 +8,13 @@ import { useSelector } from "react-redux";
 import { setUser } from "@utils/storeKid";
 import historyNavigate from "@utils/historyNavigate";
 
-const Layouts: FC = () => {
+const Layouts: FC = ({ children }) => {
   const user = useSelector((state) => state.user.user);
-  const navigate = useNavigate();
   console.log("当前用户:", user);
-  useMount(async () => {
-    console.log("验证用户...");
-    await verifyUser();
-  });
+  // useMount(async () => {
+  //   console.log("验证用户...");
+  //   await verifyUser();
+  // });
   const verifyUser = async (): Promise<void> => {
     //先查询本地是否有token
     const token: string | undefined = store.get(StoreKey.Token);
@@ -37,7 +35,7 @@ const Layouts: FC = () => {
   return (
     <div>
       layouts
-      <Outlet />
+      {children}
     </div>
   );
 };
